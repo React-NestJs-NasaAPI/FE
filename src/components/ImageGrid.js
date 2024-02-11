@@ -10,7 +10,11 @@ function ImageGrid({ images, totalHits, hasSearched }) {
       {/* Conditionally display */}
       <div className="image-grid">
         {images.map((image, index) => (
-          <ImageCard key={`${image.id}-${index}`} image={image} />
+          <ImageCard
+            key={`${image.id}-${index}`}
+            image={image}
+            isFavoritedByDefault={image.isFavorited}
+          />
         ))}
       </div>
     </div>

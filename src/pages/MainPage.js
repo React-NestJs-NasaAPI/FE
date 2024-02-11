@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import ImageGrid from "../components/ImageGrid";
 import ScrollToTop from "../components/ScrollToTop";
 import NASAApi from "../api/nasaApi"; // 변경
+import axios from "axios";
 
 const Main = () => {
   const [images, setImages] = useState([]);
@@ -25,11 +26,28 @@ const Main = () => {
           selectedCenter
         );
 
-        setImages((prevImages) => [...prevImages, ...fetchedImages]);
+        // 사용자가 로그인했는지 확인합니다.
+        const token = localStorage.getItem("groomAccessToken");
+        let favorites = [];
+        if (token) {
+          // 로그인한 경우, 백엔드에서 찜한 이미지 목록을 불러옵니다.
+          const response = await axios.get("http://localhost:8000/favorite", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          favorites = response.data;
+        }
+
+        // 불러온 이미지 목록에 찜 여부를 표시합니다.
+        const imagesWithFavorites = fetchedImages.map((image) => ({
+          ...image,
+          isFavorited: favorites.some((fav) => fav.image.url === image.url),
+        }));
+
+        setImages((prevImages) => [...prevImages, ...imagesWithFavorites]);
         setSearchResultTotal(totalHits);
-        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
         setIsLoading(false);
       }
     };
@@ -79,7 +97,6 @@ const Main = () => {
         totalHits={searchResultTotal}
         hasSearched={hasSearched}
       />
-
       {isLoading && <p>Loading more images...</p>}
       <ScrollToTop />
     </div>
