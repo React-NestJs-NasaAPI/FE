@@ -1,0 +1,20 @@
+/* styles/ScrollToTop.css */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff; /* 버튼 배경색 */
+    color: #ffffff; /* 버튼 내용색 */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0.7;
+  }
+  
+  .scroll-to-top:hover {
+    opacity: 1;
+  }
+  

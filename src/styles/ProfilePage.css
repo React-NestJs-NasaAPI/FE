@@ -1,0 +1,38 @@
+/* Base styles for profile card */
+.profile-card {
+    max-width: 900px; /* Maximum width but allows for smaller screens */
+    margin: auto; /* Center the card in the available space */
+    margin-top: 50px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    border-radius: 8px; /* Optional: if you want rounded corners */
+    overflow: hidden; /* Keeps children elements within the card */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .profile-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+.profile-card .favorite-button{
+  visibility: hidden;
+}
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .profile-card {
+      width: 85%; /* Slightly smaller width on tablet devices */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .profile-card {
+      width: 95%; /* Take up more space on smaller devices */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-card {
+      width: 100%; /* Full width on mobile devices */
+      box-shadow: none; /* Optional: remove shadow on smaller devices */
+    }
+  }
+  

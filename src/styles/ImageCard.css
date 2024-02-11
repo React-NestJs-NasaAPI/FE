@@ -1,0 +1,77 @@
+.image-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.8);
+  }
+  
+  .image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* 예시로 300px의 최대 높이 설정 */
+    object-fit: cover; /* 컨테이너를 채우면서 이미지의 비율 유지 */
+  }
+  
+  .image-info {
+    position: relative;
+    padding: 10px;
+  }
+  
+  .image-info:hover .image-detail {
+    display: block;
+  }
+  
+  .image-detail {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* 투명한 검정색 배경 */
+    color: white;
+    padding: 20px;
+    overflow: auto; /* 내용이 많을 경우 스크롤 */
+    transition: all 0.3s ease;
+  }
+  .image-card.flipped .image-detail {
+    display: block;
+  }
+  
+  /* 찜하기 버튼 스타일 */
+  .favorite-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .image-card .favorite-button  {
+    opacity: 1; /* 항상 보이게 */
+    visibility: visible; /* 항상 보이게 */
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .favorite-button button:hover {
+    opacity: 0.9; /* 호버 시 투명도 조정 (선택 사항) */
+  }
+  
+  .heart-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  

@@ -1,0 +1,163 @@
+/* 전체 페이지 스타일링 */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* 배경 흐림 효과 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/background.jpeg"); /* 배경 이미지 명시적으로 설정 */
+  background-position: center;
+  background-size: 100%;
+  /* filter: blur(3px);  */
+  /* 흐림 효과 적용 (값은 조정 가능) */
+  z-index: -1;
+}
+
+/* 네비게이션 바 & 사이드바 스타일링 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b3d91;
+  color: white;
+  padding: 10px 20px;
+  z-index: 1000;
+  font-size: x-large;
+  font-weight: bold;
+}
+.navbar .logo{
+  cursor: pointer;
+}
+/* 네비게이션 바 내 인증 버튼 스타일링 */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 버튼 사이의 간격 */
+}
+
+.auth-buttons button {
+  padding: 5px 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.auth-buttons button:hover {
+  background-color: #0056b3; /* 마우스 호버 시 버튼 색상 변경 */
+}
+
+/* 로그인 및 회원가입 버튼이 네비게이션 바와 어우러지도록 스타일 조정 */
+.navbar .auth-buttons button {
+  margin-left: auto; /* 네비게이션 바 내에서 버튼을 오른쪽으로 정렬 */
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); 
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.sidebar h2, .sidebar select {
+  margin-top: 0;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* 메인 콘텐츠 스타일링 */
+.app {
+  padding-top: 30px;
+  margin-left: 130px;
+}
+
+/* 이미지 그리드 & 카드 스타일링 */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+/* 네비게이션 바 내 검색 폼 스타일링 */
+.search-form {
+  margin-left: 3cqh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-form input, .search-form button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.search-form input {
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.search-form button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-right:20px;
+}
+.total_hits {
+  padding-left: 20px;
+  color: white
+}
+/* 반응형 디자인 조정 */
+@media (max-width: 600px) {
+  .navbar, .sidebar, .app {
+    left: 0;
+    width: 100%;
+    padding-top: 0;
+    margin-left: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sidebar {
+    height: auto;
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .search-form input, .search-form button, .image-grid {
+    width: 100%;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
