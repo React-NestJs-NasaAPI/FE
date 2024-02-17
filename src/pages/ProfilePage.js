@@ -8,7 +8,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await fetch("http://localhost:8000/favorite", {
+        const response = await fetch("http://43.203.91.122/favorite", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

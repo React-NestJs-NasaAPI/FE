@@ -18,11 +18,11 @@ function ImageCard({ image, isFavoritedByDefault, isProfilePage }) {
     setIsFavorited(newFavoritedState);
 
     // 찜하기 상태에 따른 API 엔드포인트 결정
-    const endpoint = newFavoritedState ? "/favorite/add" : "/favorite/remove";
-
+    // const endpoint = newFavoritedState ? "/favorite/add" : "/favorite/remove";
+    const method = newFavoritedState ? "POST" : "DELETE";
     try {
-      const response = await fetch(`http://localhost:8000${endpoint}`, {
-        method: "POST",
+      const response = await fetch(`http://43.203.91.122/favorite`, {
+        method: method,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("groomAccessToken")}`, // 인증 토큰 사용

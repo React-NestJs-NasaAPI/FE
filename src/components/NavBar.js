@@ -29,7 +29,7 @@ function NavBar({ onSearch, showSearch = true, isProfilePage = false }) {
 
   // 프로필 페이지로 이동
   const handleProfile = () => {
-    navigate("/profile"); // 여기서 "/profile"은 예시 경로입니다. 실제 프로필 경로에 맞게 조정해야 합니다.
+    navigate("/profile"); // 여기서 "/profile"은 예시 경로입니다.
   };
 
   return (

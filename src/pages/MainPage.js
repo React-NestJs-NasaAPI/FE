@@ -31,7 +31,7 @@ const Main = () => {
         let favorites = [];
         if (token) {
           // 로그인한 경우, 백엔드에서 찜한 이미지 목록을 불러옵니다.
-          const response = await axios.get("http://localhost:8000/favorite", {
+          const response = await axios.get("http://43.203.91.122/favorite", {
             headers: { Authorization: `Bearer ${token}` },
           });
           favorites = response.data;

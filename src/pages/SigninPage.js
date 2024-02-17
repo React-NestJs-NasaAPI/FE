@@ -23,7 +23,7 @@ const SigninPage = () => {
     e.preventDefault();
     // 로그인 로직 구현 부분
     try {
-      const response = await fetch("http://localhost:8000/user/signin", {
+      const response = await fetch("http://43.203.91.122/user/signin", {
         // 경로 오타 수정 및 메소드, 헤더, 바디 추가
         method: "POST",
         headers: {

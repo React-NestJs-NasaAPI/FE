@@ -29,7 +29,7 @@ const SignupPage = () => {
     }
     // 회원가입 API 호출 로직 추가 (예시)
     try {
-      const response = await fetch("http://localhost:8000/user/signup", {
+      const response = await fetch("http://43.203.91.122/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const SignupPage = () => {
         console.log("Signed up successfully", data);
         // 여기에 로그인 페이지로 리다이렉트하는 로직을 추가할 수 있습니다.
         const userConfirmed = window.confirm(
-          "로그인 성공! 로그인하러 가시겠습니까?"
+          "회원가입 성공! 로그인하러 가시겠습니까?"
         );
 
         if (userConfirmed) {
